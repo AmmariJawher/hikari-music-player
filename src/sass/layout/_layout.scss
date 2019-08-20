@@ -1,0 +1,128 @@
+$grey-light: hsl(0, 0%, 71%);
+$dark: hsl(0, 0%, 49%);
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 0%);
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+.music-player {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgb(18,18,18);
+  background: linear-gradient(141deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 57%, rgba(73,73,73,0.9) 100%);
+  height: 70px;
+  padding: 10px 0;
+
+  .song-info {
+    float: left;
+    width: 250px;
+    line-height: 0.6px;
+
+    .song-cover {
+      height: 70px;
+      width: 70px;
+      border-radius: 5px;
+      float: left;
+      margin-right: 10px;
+    }
+    .song-artist {
+      color: $dark;
+      font-weight: 400;
+      margin-top: 20px;
+    }
+    .song-title {
+      font-size: 20px;
+      font-weight: 400;
+      color: $white;
+    }
+
+  }
+  .controller {
+    float: left;
+    width: 250px;
+    padding: 30px 0;
+
+    span {
+      padding: 9px 11px;
+      color: $white;
+      cursor: pointer;
+    }
+    span:hover {
+      color: $grey-light;
+    }
+    .play-button {
+      color: $black;
+      background: $white;
+      padding: 10px 11px 10px 13px;
+      border-radius: 25px;
+    }
+    .play-button:hover {
+      color: $black;
+      background: $grey-light;
+      padding: 10px 11px 10px 13px;
+      border-radius: 25px;
+    }
+  }
+  .song-progress {
+    float: left;
+    padding-top: 30px;
+   
+    progress[value] {
+      /* Reset the default appearance */
+      -webkit-appearance: none;
+      appearance: none;
+
+      margin: 5px;
+      width: 400px;
+      height: 5px;
+      border-radius: 15px;
+    }
+    progress[value]::-webkit-progress-value {
+      background: #0FE8FF;
+      border-radius: 25px;
+    } 
+    progress[value]::-webkit-progress-bar {
+      border-radius: 25px;
+    }
+    .song-delay {
+      color: $white;
+      font-size: 14px;
+    }
+  }
+  .volume-settings {
+    float: right;
+    color: $white;
+
+    i {
+      padding-top: 29px;
+    }
+    #volume {
+      position: relative;
+      bottom: 3px;
+    }
+    // https://www.cssportal.com/style-input-range/
+    input[type=range]::-webkit-slider-runnable-track {
+      height: 5px;
+      cursor: pointer;
+      background:$white;
+      border-radius: 2px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      height: 18px;
+      width: 18px;
+      border: 1px solid #FFFFFF;
+      border-radius: 25px;
+      background: $white !important;
+      cursor: pointer;
+      margin-top: -7px;
+    }
+  }
+}

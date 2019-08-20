@@ -12,10 +12,10 @@
     "build:css": "npm run scss && npm run autoprefixer",
     "build:js": "npm run uglify",
     "build:img": "npm run imagemin",
-    "watch:css": "watch  \"npm run build:css -s\" src/scss",
-    "watch:img": "watch  \"npm run build:img -s\" src/images",
+    "watch:css": "watch  \"npm run build:css -s\" src/sass",
+    "Nowatch:img": "watch  \"npm run build:img -s\" src/assets/img",
     "watch:js": "watch  \"npm run build:js -s\" src/scripts",
-    "watch": "npm-run-all --parallel watch:**"
+    "watch": "npm-run-all --parallel serve watch:**"
   },
   "author": "",
   "license": "ISC",
@@ -35,7 +35,6 @@
     "uglify-es": "^3.3.9",
     "uglify-js": "^3.6.0",
     "watch": "^1.0.2"
-
   },
   "dependencies": {
     "axios": "^0.18.1"

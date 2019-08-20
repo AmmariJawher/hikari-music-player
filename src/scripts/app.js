@@ -2,6 +2,8 @@ var music = document.querySelector('audio')
 var artistName = document.getElementsByClassName('song-artist')
 var songName = document.getElementsByClassName('song-title')
 var musicCover = document.getElementsByClassName('song-cover')
+var musicPassTime = document.getElementsByClassName('song-pass-pass')
+var musicDelay = document.getElementsByClassName('song-full-delay')
 
 // Controle
 var progressBar = document.querySelector('#progress-bar')
@@ -37,11 +39,9 @@ var musicList = [
 // Functions
 function playMusic (audio) {
   audio.play();
-  console.log('test-1-pass'); 
 }
 function  pauseMusic (audio) {
   audio.pause();
-  console.log('test-2-pass'); 
 }
 
 function updateProgressBar (progressBar, player) {
@@ -51,14 +51,24 @@ function updateProgressBar (progressBar, player) {
   progressBar.value = currentProgress
 }
 
+window.setInterval(function(){
+  updateProgressBar(progressBar, music)
+}, 500);
+
+function updateTime (player, passedTime, fullDelay) {
+  passedTime.innerHtml = player.currentTime
+  fullDelay.innerHtml = player.duration
+}
+
+window.setInterval(function(){
+  updateTime(music, musicPassTime, musicDelay)
+}, 1000);
+
 function updateAudioVolume (controller, music) {
   var value = controller.value
   music.volume = value
 }
 
-window.setInterval(function(){
-  updateProgressBar(progressBar, music)
-}, 500);
 
 function updateSong(musicList, currentSong, artistName, songName, musicCover) {
   artistName.innerHtml = musicList[songNumber].artist
@@ -88,7 +98,10 @@ nextButton.addEventListener('click', function () {
 previousButton.addEventListener('click', function () {
   --songNumber
   updateSong(musicList, music, artistName, songName, musicCover)
+  musicCover.src = musicList[songNumber].cover
   playMusic(music)
 })
 
 updateSong(musicList, music, artistName, songName, musicCover)
+
+musicDelay.innerHtml = 'jlkdgj';
